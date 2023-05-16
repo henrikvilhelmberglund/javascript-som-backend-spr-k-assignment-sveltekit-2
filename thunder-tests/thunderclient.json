@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "a84fb26f-f74d-4378-982f-f908b3aadfd8",
+    "colId": "24462eac-307a-4598-9386-75e58d16274c",
+    "containerId": "",
+    "name": "Get all accounts",
+    "url": "http://[::1]:5173/api/accounts",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-16T13:43:59.248Z",
+    "modified": "2023-05-16T13:44:15.531Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

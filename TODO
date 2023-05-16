@@ -1,17 +1,17 @@
 ☐ Din uppgift är att programmera en enkel “bank”, där en användare kan skapa konton, och sätta in, ta ut.
 ☐ Projektet skall bestå av ett REST-API, samt en frontend som kommunicerar med API:et via Javascript.
-☐ API:et ska lagra information i en MongoDB.
+✔ API:et ska lagra information i en MongoDB. @done(23-05-16 17:11)
 ☐ Kommunikationen mellan API:et och frontend skall vara med JSON.
 ☐ Det är frivilligt hur mycket tid du vill lägga på design och CSS.
 
 Ett konto på banken har följande egenskaper:
-  ☐ Kontonummer
-  ☐ Kontonamn
-  ☐ Mängden pengar på kontot
+  ✔ Kontonummer @done(23-05-16 17:11)
+  ✔ Kontonamn @done(23-05-16 17:11)
+  ✔ Mängden pengar på kontot @done(23-05-16 17:11)
 
 Din frontend skall ha följande:
-  ☐ Ett formulär för att lägga till ett nytt konto, med namn och mängd pengar. Kontonumret skall skapas automatiskt (t.ex. Mongos ID, eller https://www.npmjs.com/package/uuid).
-  ☐ En lista på alla konton med namn, nummer och mängden pengar. 
+  ✔ Ett formulär för att lägga till ett nytt konto, med namn och mängd pengar. Kontonumret skall skapas automatiskt (t.ex. Mongos ID, eller https://www.npmjs.com/package/uuid). @done(23-05-16 17:10)
+  ✔ En lista på alla konton med namn, nummer och mängden pengar. @done(23-05-16 17:11)
   ☐ För varje konto skall det vara möjligt att lägga till (sätta in) pengar. 
   ☐ För varje konto skall det vara möjligt att ta bort (ta ut) pengar. OBS! Det skall inte gå att ta bort mer pengar än det finns på kontot!
   ☐ Det skall gå att ta bort konton.

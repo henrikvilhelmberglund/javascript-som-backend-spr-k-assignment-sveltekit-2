@@ -1,6 +1,5 @@
 import { getAccountsCollection } from "/src/hooks.server";
-import { json } from "@sveltejs/kit";
-
+import { error, json } from "@sveltejs/kit";
 const accountsCollection = await getAccountsCollection();
 
 /** @type {import('./$types').RequestHandler} */
@@ -11,12 +10,36 @@ export async function GET({ url, request, params }) {
 	return json(account);
 }
 
-export async function PUT({ request }) {
-	const { id, transactionType, transactionAmount } = await request.json();
-	const currentAccount = await accountsCollection.findOne({ id });
-	console.info(currentAccount);
+export async function PUT({ request, params }) {
+	let result;
+	const id = params.accountNumber;
+	const { transactionType, transactionAmount } = await request.json();
+	const currentAccount = await accountsCollection.findOne({ accountNumber: id });
+	// I  still need the currentFunds for the if statement below
+	const currentFunds = currentAccount.funds;
+
+	if (transactionType === "Withdraw") {
+		// server side check
+		if (transactionAmount > currentFunds) {
+			throw error(400, "Invalid request");
+		}
+		result = await accountsCollection.updateOne(
+			{ accountNumber: id },
+			// { $set: { funds: currentAccount.funds - transactionAmount } }
+			// apparently you can use $inc
+			{ $inc: { funds: -transactionAmount } }
+		);
+	} else if (transactionType === "Deposit") {
+		if (transactionAmount === 0 || transactionAmount > 30000) {
+			throw error(400, "Invalid request");
+		}
+		result = await accountsCollection.updateOne(
+			{ accountNumber: id },
+			{ $inc: { funds: transactionAmount } }
+		);
+	}
 
 	// accountsCollection.modifyOne()
 
-	return json(currentAccount);
+	return json(result);
 }

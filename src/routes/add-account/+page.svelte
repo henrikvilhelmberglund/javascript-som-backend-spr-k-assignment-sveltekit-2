@@ -1,5 +1,6 @@
 <script>
 	import Updated from "$lib/Updated.svelte";
+	import { messageStore } from "$lib/stores";
 
 	let debug = true;
 	let name;
@@ -31,10 +32,7 @@
 				fetchData = await res.json();
 				console.log(fetchData);
 
-				success = true;
-				setTimeout(() => {
-					success = undefined;
-				}, 1500);
+				$messageStore = { color: "green", text: `Successfully added new account: ${name}!` };
 			} else {
 				error = { status: 401, text: "Unauthorized" };
 			}
@@ -63,6 +61,7 @@
 				class="outline-solid rounded p-2 outline-1 outline-black"
 				placeholder="Money"
 				id="money"
+				min="0"
 				bind:value={money}
 				name="money" />
 			<button
@@ -70,10 +69,10 @@
 				>Add account</button>
 		</div>
 	</form>
-	{#if success}
-		<Updated method="POST" />
-	{/if}
 </main>
+{#if $messageStore}
+	<Updated />
+{/if}
 
 <style>
 </style>

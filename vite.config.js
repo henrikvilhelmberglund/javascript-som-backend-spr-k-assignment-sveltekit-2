@@ -9,9 +9,11 @@ import presetTheme from "unocss-preset-theme";
 import { presetHeroPatterns } from "@julr/unocss-preset-heropatterns";
 import { colors } from "@unocss/preset-mini";
 import { createSafeList } from "./safelist";
+import { multicssclass } from "svelte-multicssclass";
 
 export default defineConfig({
 	plugins: [
+		multicssclass(),
 		UnoCSS({
 			shortcuts: {
 				"btn-primary":

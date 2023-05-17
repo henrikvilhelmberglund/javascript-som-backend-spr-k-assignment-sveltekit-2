@@ -1,31 +1,35 @@
 <script>
 	import { onMount } from "svelte";
 	import { fly } from "svelte/transition";
-	export let method;
+	import { messageStore } from "./stores";
 
-	let show = false;
-	onMount(() => {
-		show = true;
-		setTimeout(() => {
-			show = false;
-		}, 2000);
-	});
+	// TODO fix timer not restarting when clicked several times
+	let timer;
+	console.log(timer);
+	if (timer) {
+		console.log("cleared timer");
+		clearTimeout(timer);
+	}
+	timer = setTimeout(() => {
+		$messageStore = null;
+	}, 2000);
 </script>
 
-<main
-	transition:fly={{ y: 50 }}
-	class:bg-green-200={method === "POST"}
-	class:bg-red-200={method === "DELETE"}
-	class:bg-blue-200={method === "PUT"}
-	class="absolute left-[50%] top-[50%] translate-x-[-50%] rounded-xl p-12 text-center">
-	{#if method === "POST"}
-		<h1 class="text-4xl text-green-500">Successfully added new account!</h1>
-	{:else if method === "DELETE"}
-		<h1 class="text-4xl text-red-500">Successfully deleted account!</h1>
-	{:else if method === "PUT"}
-		<h1 class="text-4xl text-blue-500">Successfully updated account!</h1>
-	{/if}
-</main>
+<!--
+@component
+Displays a message using the messageStore store which contains a color and a text.
+-->
+
+{#if $messageStore}
+	<div
+		transition:fly={{ y: 50 }}
+		class:bg-green-200,text-green-500={$messageStore.color === "green"}
+		class:bg-red-200,text-red-500={$messageStore.color === "red"}
+		class:bg-blue-200,text-blue-500={$messageStore.color === "blue"}
+		class="absolute left-[50%] top-[50%] translate-x-[-50%] rounded-xl p-12 text-center">
+		<p class="text-4xl">{$messageStore.text}</p>
+	</div>
+{/if}
 
 <style>
 </style>

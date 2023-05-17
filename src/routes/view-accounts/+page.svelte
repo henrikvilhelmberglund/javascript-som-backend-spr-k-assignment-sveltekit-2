@@ -10,7 +10,7 @@
 </svelte:head>
 
 <main>
-	<div class="flex flex-col">
+	<div class="flex w-fit flex-col m-4">
 		<h1 class="m-4 text-xl">View accounts</h1>
 		{#each data.accounts as account}
 			<Account {account} />

@@ -16,7 +16,7 @@
 	const routes = {
 		Bankademin: "/",
 		"Add account": "/add-account",
-		"View account": "/view-accounts",
+		"View accounts": "/view-accounts",
 	};
 </script>
 

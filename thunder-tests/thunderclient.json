@@ -12,5 +12,62 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "c54e0c8f-dc94-4790-9fca-63d865ba9d76",
+    "colId": "24462eac-307a-4598-9386-75e58d16274c",
+    "containerId": "",
+    "name": "Deposit 35000 (should give 400 error)",
+    "url": "http://[::1]:5173/api/account/2e813e82-f457-458b-81b9-7394a4fa8bc1",
+    "method": "PUT",
+    "sortNum": 20000,
+    "created": "2023-05-17T15:14:34.327Z",
+    "modified": "2023-05-17T15:19:31.256Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"transactionType\": \"Deposit\", \"transactionAmount\": 35000 \n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d84a6331-d6e9-479e-8fe6-342f13b64c9a",
+    "colId": "24462eac-307a-4598-9386-75e58d16274c",
+    "containerId": "",
+    "name": "Withdraw 10 (should work)",
+    "url": "http://[::1]:5173/api/account/2e813e82-f457-458b-81b9-7394a4fa8bc1",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2023-05-17T15:20:11.706Z",
+    "modified": "2023-05-17T15:21:29.066Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"transactionType\": \"Withdraw\", \"transactionAmount\": 10\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "318c1451-a7e7-4197-9012-8d510d17e118",
+    "colId": "24462eac-307a-4598-9386-75e58d16274c",
+    "containerId": "",
+    "name": "Deposit 350 (should work)",
+    "url": "http://[::1]:5173/api/account/2e813e82-f457-458b-81b9-7394a4fa8bc1",
+    "method": "PUT",
+    "sortNum": 25000,
+    "created": "2023-05-17T15:20:50.609Z",
+    "modified": "2023-05-17T15:21:09.035Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"transactionType\": \"Deposit\", \"transactionAmount\": 350\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

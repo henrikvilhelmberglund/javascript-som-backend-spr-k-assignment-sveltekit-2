@@ -5,7 +5,6 @@
 
 	// TODO fix timer not restarting when clicked several times
 	let timer;
-	console.log(timer);
 	if (timer) {
 		console.log("cleared timer");
 		clearTimeout(timer);

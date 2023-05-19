@@ -5,14 +5,14 @@
 	let debug = true;
 	let name;
 	let pass;
-	let money;
+	let funds;
 	let error = false;
 	let success = undefined;
 
 	if (debug) {
 		name = "Superman";
 		pass = "Test1234";
-		money = 500;
+		funds = 500;
 	}
 </script>
 
@@ -59,11 +59,11 @@
 				required
 				type="number"
 				class="outline-solid rounded p-2 outline-1 outline-black"
-				placeholder="Money"
-				id="money"
+				placeholder="Funds"
+				id="funds"
 				min="0"
-				bind:value={money}
-				name="money" />
+				bind:value={funds}
+				name="funds" />
 			<button
 				class="rounded-lg border border-gray-200 bg-green-400 bg-clip-padding p-8 backdrop-blur-lg backdrop-filter hover:bg-green-300"
 				>Add account</button>

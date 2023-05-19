@@ -21,10 +21,26 @@
 		if (res.ok) {
 			const data = await res.json();
 			if (state === "Withdraw") {
-				$messageStore = { text: `Successfully withdrew ${amount} SEK!`, type: "Withdraw" };
+				$messageStore = { text: `Successfully withdrew ${amount} SEK!`, color: "red" };
 			} else if (state === "Deposit") {
-				$messageStore = { text: `Successfully deposited ${amount} SEK!`, type: "Deposit" };
+				$messageStore = { text: `Successfully deposited ${amount} SEK!`, color: "green" };
 			}
+			// rerun load function to update the new funds in the UI
+			await invalidateAll();
+			setTimeout(() => {
+				$messageStore = null;
+			}, 1500);
+		}
+	}
+
+	async function deleteAccount() {
+		const res = await fetch(`http://localhost:5173/api/account/${$page.params.slug}`, {
+			method: "DELETE",
+		});
+		console.log(res);
+		if (res.ok) {
+			const data = await res.json();
+			$messageStore = { text: `Successfully deleted account ${data.account.name}`, color: "red" };
 			// rerun load function to update the new funds in the UI
 			await invalidateAll();
 			setTimeout(() => {
@@ -35,7 +51,10 @@
 </script>
 
 <main class="m-4 flex w-fit flex-col">
-	<Account account={data.account} />
+	<div class="flex flex-row">
+		<Account account={data.account} />
+		<button on:click={deleteAccount} class="text-4xl">❌</button>
+	</div>
 	<div class="flex justify-between">
 		{#each transactionTypes as transaction}
 			<button

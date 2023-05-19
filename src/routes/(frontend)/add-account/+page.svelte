@@ -26,7 +26,7 @@
 			let fetchData;
 			const res = await fetch(`http://localhost:5173/api/accounts/`, {
 				method: "POST",
-				body: JSON.stringify({ name, pass, money }),
+				body: JSON.stringify({ name, pass, funds }),
 			});
 			if (res.ok) {
 				fetchData = await res.json();

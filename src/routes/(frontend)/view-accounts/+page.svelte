@@ -1,5 +1,9 @@
 <script>
+	import { invalidateAll } from "$app/navigation";
 	import Account from "$lib/Account.svelte";
+	import Updated from "$lib/Updated.svelte";
+	import { deleteAccount } from "$lib/clientFunctions.js";
+	import { messageStore } from "$lib/stores.js";
 
 	// get data from +page.js
 	export let data;
@@ -10,13 +14,27 @@
 </svelte:head>
 
 <main>
-	<div class="flex w-fit flex-col m-4">
-		<h1 class="m-4 text-xl">View accounts</h1>
+	<div class="m-4 flex w-fit flex-col">
+		<h1 class="my-4 text-xl">View accounts</h1>
+    {#if data.accounts.length === 0}
+      <h2 class="text-lg">There are currently no accounts.</h2>
+    {/if}
 		{#each data.accounts as account}
-			<Account {account} />
+			<div>
+				<Account {account} />
+				<button
+					on:click={() => {
+						deleteAccount(account, messageStore);
+            invalidateAll();
+					}}
+					class="text-4xl">❌</button>
+			</div>
 		{/each}
 	</div>
 </main>
+{#if $messageStore}
+<Updated />
+{/if}
 
 <style>
 </style>

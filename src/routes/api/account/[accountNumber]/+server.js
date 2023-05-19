@@ -43,3 +43,11 @@ export async function PUT({ request, params }) {
 
 	return json(result);
 }
+
+export async function DELETE({ request, params }) {
+	let result;
+	const id = params.accountNumber;
+	result = await accountsCollection.deleteOne({ accountNumber: id });
+
+	return json(result);
+}

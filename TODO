@@ -14,7 +14,7 @@ Din frontend skall ha följande:
   ✔ En lista på alla konton med namn, nummer och mängden pengar. @done(23-05-16 17:11)
   ✔ För varje konto skall det vara möjligt att lägga till (sätta in) pengar. @done(23-05-19 11:43)
   ✔ För varje konto skall det vara möjligt att ta bort (ta ut) pengar. OBS! Det skall inte gå att ta bort mer pengar än det finns på kontot! @done(23-05-19 11:43)
-  ☐ Det skall gå att ta bort konton.
+  ✔ Det skall gå att ta bort konton. @done(23-05-19 15:00)
 
 VG:
   ☐ Banken skall vara skyddad så att man måste logga in för att använda den. 

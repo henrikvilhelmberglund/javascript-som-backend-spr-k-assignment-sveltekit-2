@@ -9,9 +9,6 @@
 			{account.name}
 		</p>
 		<p>
-			{account.pass}
-		</p>
-		<p>
 			{account.accountNumber}
 		</p>
 		<p>

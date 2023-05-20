@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { error, json } from "@sveltejs/kit";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 import { getUsersCollection, updateHookedUser } from "/src/hooks.server";
 /** @type {import('./$types').RequestHandler} */
@@ -31,8 +32,10 @@ export async function POST({ url, request, cookies, locals }) {
 	if (match) {
 		console.log(incomingUser);
 		if (incomingUser) {
+			// key would be an environment variable in .env in a real projekt
+			const token = jwt.sign({ id: incomingUser._id }, "a very secret key");
 			// separate uuid here is probably better but would need to save it temporarily in database too
-			cookies.set("session", incomingUser._id, {
+			cookies.set("AuthorizationToken", `Bearer ${token}`, {
 				httpOnly: true,
 				sameSite: "strict",
 				secure: false,

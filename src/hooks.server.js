@@ -24,6 +24,7 @@ export const handle = async ({ event, resolve }) => {
 
 	if (user) {
 		event.locals.user = user.user;
+		event.locals.id = user._id.toString();
 	}
 	console.warn("hooks", event.locals);
 

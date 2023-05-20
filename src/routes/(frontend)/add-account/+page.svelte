@@ -5,9 +5,8 @@
 
 	export let data;
 
-	let debug = true;
+	let debug = false;
 	let name;
-	let pass;
 	let funds;
 	let error = false;
 	let success = undefined;

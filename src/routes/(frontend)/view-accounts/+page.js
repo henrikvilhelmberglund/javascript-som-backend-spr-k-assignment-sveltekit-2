@@ -11,8 +11,8 @@ export const prerender = false;
 export async function load({ fetch }) {
 	const auth = await checkLoginStatus();
 	if (!auth.user) {
-    return {
-      // instead of throwing an error I return it to the load function so I can display something else than just an error page
+		return {
+			// instead of throwing an error I return it to the load function so I can display something else than just an error page
 			error: 401,
 		};
 	}
@@ -21,6 +21,7 @@ export async function load({ fetch }) {
 	// can't serialize BSON ID
 
 	return {
+		auth,
 		accounts: data,
 	};
 }

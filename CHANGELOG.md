@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.2](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/compare/v0.0.1...v0.0.2) (2023-05-20)
+
+
+### Features
+
+* :sparkles: add try catch for the server connection ([553ddb3](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/553ddb3dcd490cc2c37744399430011402619302))
+* :zap: break out connection code outside of hooks.server.js ([89a8b0e](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/89a8b0e4031a8ef87cf13f3145a8e68a2d6ae908))
+* :sparkles: add PleaseLogin component that tells you to log in ([d58a5e6](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/d58a5e620835fb140379f9310636e1edacc062f6))
+* :sparkles: make the accounts GET and POST endpoints use the ownedBy field ([65e3262](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/65e3262669f6ab4986b9f55525a2a4159cc3ea29))
+* :sparkles: return auth as well ([49c2a70](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/49c2a70db6ba5a41caa96abf812fd014765d4091))
+* :sparkles: add ownedBy with the user ID to the created account ([56f2e9e](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/56f2e9e5ad3e180aa1baafe5e68f795156960b21))
+* :sparkles: add string representation of user _id object id as id in locals ([55c7d2b](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/55c7d2ba430b9e563cf50596b830a37e5f1ca54e))
+* :sparkles: only show add account form when you are logged in ([94cbc8e](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/94cbc8e9a92ce1b29cd1334d27201ad639865174))
+* :sparkles: add auth load function for add-account route ([2542fe2](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/2542fe29091719ac1c422bc071ce2b1a46272384))
+* :sparkles: generate and use jwt token instead of using mongoDB _id directly ([b34cbe8](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/b34cbe8e8d0ed93327430b9231fa90c7bfbf976b))
+* :package: add jsonwebtoken ([9f49bdf](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/9f49bdf2901189956f7184d789ab58be4564e3cf))
+
+
+### Bug Fixes
+
+* :fire: cleanup ([f0863da](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/f0863da083e3939ca2d75036faa631f7702cabf3))
+* :zap: import connect function from mongoConnect.js, be sure to set client if it is not set already ([3b8ecda](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/3b8ecda219c82dcb6fef6bfb8c1cd264cc2ebde6))
+* :zap: use SvelteKit's fetch function to stop it from complaining in the console ([51d3ad4](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/51d3ad4dccaaf1aa8830b5deffc70d7566cfdb87))
+* :bug: transaction limit should be on withdrawals, not deposits ([77a9342](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/77a93423d43b20c507f0754224254c70ffb53bd6))
+* :triangular_flag_on_post: disable debug flag, remove pass ([949ee86](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/949ee865e1fc20f2b872c7b96d6b8c2da7afb31e))
+* :lipstick: improve styling, add PleaseLogin components ([04152cd](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/04152cd62def061871fd7a94395a038c7c6a510c))
+* :art: rename auth route to login in the nav ([9cd773c](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/9cd773c26cb6ae231c59f6781e7108f5750cd84f))
+* :truck: change auth route to login ([f671e79](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/f671e794feba3ec86336545e2d405e052404dc1f))
+* :bug: use ownedBy in the dynamic GET to make sure we don't display other user's accounts by accident ([a3b8515](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/a3b851555c8cb96e0bfbe68b9727cf51b5bb5168))
+* :fire: cleanup ([33c85b0](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/33c85b006f0373de75b0e096e1a7d08d0a15416a))
+* :speech_balloon: improve the UI text ([8fefa3e](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/8fefa3ec87af463bb1c250b26592d38cdecae47f))
+* :fire: disable ssr ([4b33606](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/4b33606abbe5b7eb76c97bf20ad6e51dbff3ee9a))
+* :fire: remove annoying console log ([c30be64](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/c30be64b1cdedfe7ee903e0b22b982aed36a63cf))
+* :fire: remove pass ([0f0d3c5](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/0f0d3c5ef876ad5df309aa5f3383fb45ba0c97b9))
+* :fire: remove unused import ([362b781](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/362b781944fa35ce9009f44a476126db18cd52df))
+* :fire: remove unused imports ([1c5ed2f](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/1c5ed2fe97cce24d3ff83c831e05c0b9c79b2e80))
+* :bug: accounts shouldn't have passwords ([5dc7789](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/5dc7789f645a66b8db8197a52950a2a951b59e7c))
+* :zap: set maxAge for the cookie to five minutes ([12d6f8c](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/12d6f8ccb5d881b660edbf827a9255d70a3c973f))
+* :fire: forgot to remove template changelog before releasing ([e1095de](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/e1095de7d8881f82b7195a5459977b577248cf3f))
+
 ## 0.0.1 (2023-05-20)
 
 

@@ -13,10 +13,12 @@ export const handle = async ({ event, resolve }) => {
 		return await resolve(event);
 	}
 
-	const accountsCollection = await getAccountsCollection();
+	const usersCollection = await getUsersCollection();
+	// running this on every request is probably not very smart
+	user = await usersCollection.findOne({ _id: new ObjectId(session) });
 
 	if (user) {
-		event.locals.user = user;
+		event.locals.user = user.user;
 	}
 	console.warn("hooks", event.locals);
 

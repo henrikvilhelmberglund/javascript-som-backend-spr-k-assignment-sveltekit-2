@@ -1,6 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
 import console from "hvb-console";
 import jwt from "jsonwebtoken";
+import { connectToMongoDB } from "$lib/server/mongoConnect";
 
 let client;
 let user;
@@ -17,42 +18,33 @@ export const handle = async ({ event, resolve }) => {
 	const usersCollection = await getUsersCollection();
 	const token = session.split(" ")[1];
 	const jwtID = jwt.verify(token, "a very secret key");
-	console.warn("jwtID", jwtID);
+	// console.info("jwtID", jwtID);
+
 	// running this on every request is probably not very smart
 	user = await usersCollection.findOne({ _id: new ObjectId(jwtID.id) });
-	console.warn(user);
 
+	// console.warn("user:", user);
 	if (user) {
 		event.locals.user = user.user;
 		event.locals.id = user._id.toString();
 	}
-	console.warn("hooks", event.locals);
+	// console.info("hooks.server.js", event.locals);
 
 	return await resolve(event);
 };
 
-async function run() {
-	try {
-		client = new MongoClient("mongodb://127.0.0.1:27017");
-		await client.connect();
-		await client.db("admin").command({ ping: 1 });
-		console.log("Pinged your deployment. You successfully connected to MongoDB!");
-	} catch (error) {
-		console.log(error);
-	} finally {
-		// await client.close();
-	}
-	return client;
-}
-
 export async function getAccountsCollection() {
-	const client = await run();
+	if (!client) {
+		client = await connectToMongoDB();
+	}
 	const db = client.db("bank");
 	return db.collection("accounts");
 }
 
 export async function getUsersCollection() {
-	const client = await run();
+	if (!client) {
+		client = await connectToMongoDB();
+	}
 	const db = client.db("bank-auth");
 	return db.collection("users");
 }

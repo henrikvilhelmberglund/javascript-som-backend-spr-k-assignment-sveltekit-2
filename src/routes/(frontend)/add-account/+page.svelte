@@ -10,8 +10,7 @@
 	let success = undefined;
 
 	if (debug) {
-		name = "Superman";
-		pass = "Test1234";
+		name = "Personal account";
 		funds = 500;
 	}
 </script>
@@ -26,7 +25,7 @@
 			let fetchData;
 			const res = await fetch(`http://localhost:5173/api/accounts/`, {
 				method: "POST",
-				body: JSON.stringify({ name, pass, funds }),
+				body: JSON.stringify({ name, funds }),
 			});
 			if (res.ok) {
 				fetchData = await res.json();
@@ -47,14 +46,6 @@
 				id="name"
 				name="name"
 				bind:value={name} />
-			<input
-				required
-				type="password"
-				class="outline-solid rounded p-2 outline-1 outline-black"
-				placeholder="Password"
-				id="password"
-				bind:value={pass}
-				name="password" />
 			<input
 				required
 				type="number"

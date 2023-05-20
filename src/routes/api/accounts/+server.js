@@ -17,11 +17,11 @@ export async function POST({ url, request, cookies, locals }) {
 	const incomingBody = await request.json();
 	const accountNumber = uuidv4();
 	// const body = result.body;
-	let { name, pass, funds } = incomingBody;
+	let { name, funds } = incomingBody;
 
 	// let { title, content, date, tags } = Object.fromEntries(formData);
 
-	accountsCollection.insertOne({ name, pass, accountNumber, funds });
+	accountsCollection.insertOne({ name, accountNumber, funds });
 	// cookies.set("session", uuidv4(), {
 	// 	httpOnly: true,
 	// 	sameSite: "strict",

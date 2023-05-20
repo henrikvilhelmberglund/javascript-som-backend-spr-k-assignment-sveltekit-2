@@ -6,6 +6,8 @@ import { getUsersCollection, updateHookedUser } from "/src/hooks.server";
 /** @type {import('./$types').RequestHandler} */
 
 export async function POST({ url, request, cookies, locals }) {
+	// cookies are in seconds here apparently
+	const FIVE_MINUTES = 5 * 60;
 	let incomingUser;
 	const incomingBody = await request.json();
 	const usersCollection = await getUsersCollection();
@@ -35,7 +37,7 @@ export async function POST({ url, request, cookies, locals }) {
 				sameSite: "strict",
 				secure: false,
 				path: "/",
-				maxAge: 60 * 60 * 24 * 7,
+				maxAge: FIVE_MINUTES,
 			});
 			locals = {
 				user: user,

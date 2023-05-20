@@ -27,7 +27,7 @@
 		"@unocss/transformer-directives": "^0.50.6",
 		"bcrypt": "^5.1.0",
 		"commit-and-tag-version": "^11.0.0",
-		"hvb-console": "^0.0.1",
+		"hvb-console": "^0.0.2",
 		"mongodb": "^5.5.0",
 		"prettier": "^2.8.4",
 		"prettier-plugin-svelte": "^2.8.1",

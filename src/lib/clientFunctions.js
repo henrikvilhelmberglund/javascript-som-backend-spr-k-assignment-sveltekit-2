@@ -23,7 +23,6 @@ export async function checkLoginStatus() {
 	let state;
 	let data;
 	const res = await fetch("http://localhost:5173/api/auth/loggedin");
-  console.log("+page.js", res);
 	if (res.ok) {
 		data = await res.json();
 		console.log("+page.js", data);

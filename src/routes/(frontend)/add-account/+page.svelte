@@ -1,4 +1,5 @@
 <script>
+	import PleaseLogin from "$lib/PleaseLogin.svelte";
 	import Updated from "$lib/Updated.svelte";
 	import { messageStore } from "$lib/stores";
 
@@ -26,7 +27,7 @@
 	<title>Bankademin - Add account</title>
 </svelte:head>
 
-<main class="flex-1 [&>*]:m-4">
+<main class="flex-1 bg-gradient-to-b from-white to-blue-300 h-[91.8vh] [&>*]:m-4">
 	{#if show}
 		<h1 class="my-4 text-xl">Add an account</h1>
 		<form
@@ -70,7 +71,7 @@
 			</div>
 		</form>
 	{:else}
-		<h2 class="text-lg">You need to login before adding an account.</h2>
+		<PleaseLogin>before adding an account</PleaseLogin>
 	{/if}
 </main>
 {#if $messageStore}

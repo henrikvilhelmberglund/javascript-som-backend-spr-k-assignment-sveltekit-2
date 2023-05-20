@@ -1,7 +1,7 @@
 <script>
 	import { invalidateAll } from "$app/navigation";
-	import { checkLoginStatus } from "$lib/clientFunctions.js";
-	import { beforeUpdate } from "svelte";
+	import Updated from "$lib/Updated.svelte";
+	import { messageStore } from "$lib/stores.js";
 
 	// let state = "logged out";
 	let user;
@@ -15,14 +15,13 @@
 	export let data;
 </script>
 
-{data.state}
-<main class="[&>*]:m-4">
+<main class="h-[calc(100vh-4rem)] bg-gradient-to-b from-white to-blue-300 [&>*]:p-4">
 	<h1 class="text-5xl">Auth page</h1>
 	{#if data.state === "logged out"}
 		<h2 class="text-4xl">{mode === "login" ? "Login" : "Register"}</h2>
 		<button
 			on:click={() => (mode === "login" ? (mode = "register") : (mode = "login"))}
-			class="rounded-lg bg-emerald-500 p-2 hover:bg-emerald-400"
+			class="m-4 rounded-lg bg-emerald-500 p-2 hover:bg-emerald-400"
 			>{mode === "login" ? "Register" : "Login"}</button>
 		{#if mode === "login" && Object.keys(error).length}
 			<!-- <h3 class="text-4xl">{error.status}: {error.text}</h3> -->
@@ -46,12 +45,14 @@
 
 						if (mode === "register") {
 							// add a bit of delay so we can see the nice message
+							$messageStore = { text: "Successfully registered!", color: "green" };
 							setTimeout(async () => {
 								await invalidateAll();
-                mode = "login";
-                pass = "";
+								mode = "login";
+								pass = "";
 							}, 1500);
 						} else {
+							$messageStore = { text: "Successfully logged in!", color: "green" };
 							await invalidateAll();
 						}
 						data.state = mode === "login" ? "logged in" : "registered";
@@ -99,18 +100,19 @@
 					fetchData = await res.json();
 					console.log(fetchData);
 					data.state = "logged out";
+					$messageStore = { text: "Successfully logged out!", color: "green" };
 				} else {
 					error = { status: 401, text: "Unauthorized???" };
 				}
 			}}
-			class="rounded-lg bg-orange-500 p-2 hover:bg-orange-400">Log out</button>
+			class="m-4 rounded-lg bg-orange-500 p-2 hover:bg-orange-400">Log out</button>
 	{:else if data.state === "registered"}
 		<div>
-			<h2 class="text-4xl">Successfully registered new user!</h2>
-			<button
-				on:click={() => location.reload()}
-				class="my-4 inline-block rounded-lg bg-blue-300 p-2 hover:bg-blue-200">Go back</button>
+			<h2 class="text-4xl">Reloading...</h2>
 		</div>
+	{/if}
+	{#if $messageStore}
+		<Updated />
 	{/if}
 </main>
 

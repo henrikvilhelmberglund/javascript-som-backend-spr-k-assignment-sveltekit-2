@@ -37,8 +37,8 @@
 	}
 </script>
 
-<main class="m-4 flex w-fit flex-col">
-	<div out:fly={{ y: 50 }}>
+<main class="flex flex-col bg-gradient-to-b from-white to-blue-300 h-[calc(100vh-4rem)]">
+	<div class="m-4 w-fit" out:fly={{ y: 50 }}>
 		{#if showAccount}
 			<div class="flex flex-row">
 				<Account account={data.account} />
@@ -53,7 +53,7 @@
 				{#each transactionTypes as transaction}
 					<button
 						on:click={() => (state = transaction)}
-						class:outline-2;shadow-inner,!bg-slate-300={state === transaction}
+						class:outline-2;shadow-inner,!bg-slate-200={state === transaction}
 						class:shadow-md={state !== transaction}
 						class="m-4 rounded bg-white p-2 shadow-black outline outline-1">{transaction}</button>
 				{/each}

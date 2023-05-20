@@ -9,7 +9,7 @@ export const prerender = false;
 /** @type {import('./$types').PageLoad} */
 
 export async function load({ fetch }) {
-	const auth = await checkLoginStatus();
+	const auth = await checkLoginStatus(fetch);
 	if (!auth.user) {
 		return {
 			// instead of throwing an error I return it to the load function so I can display something else than just an error page

@@ -3,8 +3,8 @@ import { checkLoginStatus } from "$lib/clientFunctions";
 
 export const prerender = false;
 /** @type {import('./$types').PageLoad} */
-export async function load() {
-	const auth = await checkLoginStatus();
+export async function load({ fetch }) {
+	const auth = await checkLoginStatus(fetch);
 	return {
 		user: auth.user,
 		state: auth.state,

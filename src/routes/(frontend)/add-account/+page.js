@@ -10,7 +10,7 @@ export const ssr = false;
 /** @type {import('./$types').PageLoad} */
 
 export async function load({ fetch }) {
-	const auth = await checkLoginStatus();
+	const auth = await checkLoginStatus(fetch);
 	console.info("auth in add-account", auth);
 	if (!auth.user) {
 		return {

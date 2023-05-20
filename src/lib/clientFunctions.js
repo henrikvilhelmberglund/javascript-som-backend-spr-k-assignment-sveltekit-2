@@ -19,16 +19,16 @@ export async function deleteAccount(account, store) {
 	}
 }
 
-export async function checkLoginStatus() {
+export async function checkLoginStatus(fetch) {
 	let state;
 	let data;
 	const res = await fetch("http://localhost:5173/api/auth/loggedin");
 	if (res.ok) {
 		data = await res.json();
-		console.log("+page.js", data);
+		// console.log("+page.js", data);
 		state = "logged in";
 	} else {
-		console.log("+page.js", data);
+		// console.log("+page.js", data);
 		state = "logged out";
 	}
 	return {

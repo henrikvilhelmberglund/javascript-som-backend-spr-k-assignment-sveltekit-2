@@ -20,10 +20,10 @@
 
 <main>
 	<div class="m-4 flex w-fit flex-col">
-		<h1 class="my-4 text-xl">View accounts</h1>
-		{#if show}
+    {#if show}
+		<h1 class="my-4 text-xl">{data.auth.user.user}'s accounts</h1>
 			{#if data.accounts.length === 0}
-				<h2 class="text-lg">There are currently no accounts.</h2>
+				<h2 class="text-lg">You do not have any accounts yet.</h2>
 			{/if}
 			{#each data.accounts as account}
 				<div>

@@ -1,8 +1,8 @@
-☐ Din uppgift är att programmera en enkel “bank”, där en användare kan skapa konton, och sätta in, ta ut.
-☐ Projektet skall bestå av ett REST-API, samt en frontend som kommunicerar med API:et via Javascript.
+✔ Din uppgift är att programmera en enkel “bank”, där en användare kan skapa konton, och sätta in, ta ut. @done(23-05-20 17:56)
+✔ Projektet skall bestå av ett REST-API, samt en frontend som kommunicerar med API:et via Javascript. @done(23-05-20 17:56)
 ✔ API:et ska lagra information i en MongoDB. @done(23-05-16 17:11)
-☐ Kommunikationen mellan API:et och frontend skall vara med JSON.
-☐ Det är frivilligt hur mycket tid du vill lägga på design och CSS.
+✔ Kommunikationen mellan API:et och frontend skall vara med JSON. @done(23-05-20 17:56)
+✔ Det är frivilligt hur mycket tid du vill lägga på design och CSS. @done(23-05-20 17:56)
 
 Ett konto på banken har följande egenskaper:
   ✔ Kontonummer @done(23-05-16 17:11)
@@ -17,12 +17,18 @@ Din frontend skall ha följande:
   ✔ Det skall gå att ta bort konton. @done(23-05-19 15:00)
 
 VG:
-  ☐ Banken skall vara skyddad så att man måste logga in för att använda den. 
-  ☐ Det räcker med att alla användare kan hantera samma, alltså alla konton; men om du vill får du göra så att varje användare har varsina konton. 
-  ☐ Om du gör så, behöver du fundera på om du skall knyta ihop konton och användare med referenser (https://www.mongodb.com/docs/manual/tutorial/model-referenced-one-to-manyrelationships-between-documents/), eller om du skall ha endast en collection med användare och ha kontona som en del av användar-documentet.
+  ✔ Banken skall vara skyddad så att man måste logga in för att använda den. @done(23-05-20 17:55)
+  ✔ Det räcker med att alla användare kan hantera samma, alltså alla konton; men om du vill får du göra så att varje användare har varsina konton. @done(23-05-20 17:55)
+  ✘ Om du gör så, behöver du fundera på om du skall knyta ihop konton och användare med referenser (https://www.mongodb.com/docs/manual/tutorial/model-referenced-one-to-manyrelationships-between-documents/), eller om du skall ha endast en collection med användare och ha kontona som en del av användar-documentet. @cancelled(23-05-20 17:55)
+  (kanske nästa gång)
    
   Kontofunktioner:
-    ☐ Det skall gå att skapa nya användare.
-    ☐ Lösenord skall vara krypterade i databasen. 
-    ☐ Man skall kunna logga in.
-    ☐ Man ska inte kunna se kontoinformation om man inte är inloggad.
+    ✔ Det skall gå att skapa nya användare. @done(23-05-20 17:56)
+    ✔ Lösenord skall vara krypterade i databasen. @done(23-05-20 17:56)
+    ✔ Man skall kunna logga in. @done(23-05-20 17:56)
+    ✔ Man ska inte kunna se kontoinformation om man inte är inloggad. @done(23-05-20 17:56)
+
+(egna todos under)
+
+Polish: 
+  ☐ Add account borde bara fungera om man är inloggad

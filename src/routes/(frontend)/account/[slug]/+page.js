@@ -1,4 +1,3 @@
-import { browser } from "$app/environment";
 import { checkLoginStatus } from "$lib/clientFunctions";
 import { error } from "@sveltejs/kit";
 

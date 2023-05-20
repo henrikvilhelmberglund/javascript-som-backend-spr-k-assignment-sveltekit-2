@@ -4,9 +4,13 @@ const accountsCollection = await getAccountsCollection();
 
 /** @type {import('./$types').RequestHandler} */
 
-export async function GET({ url, request, params }) {
+export async function GET({ url, request, params, locals }) {
 	console.info(params.accountNumber);
-	const account = await accountsCollection.findOne({ accountNumber: params.accountNumber });
+	// make sure we're not finding any other user's accounts in the dynamic route
+	const account = await accountsCollection.findOne({
+		ownedBy: locals.id,
+		accountNumber: params.accountNumber,
+	});
 	return json(account);
 }
 
@@ -38,8 +42,6 @@ export async function PUT({ request, params }) {
 			{ $inc: { funds: transactionAmount } }
 		);
 	}
-
-	// accountsCollection.modifyOne()
 
 	return json(result);
 }

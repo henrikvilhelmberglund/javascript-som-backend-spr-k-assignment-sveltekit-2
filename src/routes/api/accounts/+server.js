@@ -8,8 +8,8 @@ const accountsCollection = await getAccountsCollection();
 
 /** @type {import('./$types').RequestHandler} */
 
-export async function GET({ url, request }) {
-	const accounts = await accountsCollection.find({}).toArray();
+export async function GET({ url, request, locals }) {
+	const accounts = await accountsCollection.find({ ownedBy: locals.id }).toArray();
 	return json(accounts);
 }
 
@@ -17,11 +17,11 @@ export async function POST({ url, request, cookies, locals }) {
 	const incomingBody = await request.json();
 	const accountNumber = uuidv4();
 	// const body = result.body;
-	let { name, funds } = incomingBody;
+	let { ownedBy, name, funds } = incomingBody;
 
 	// let { title, content, date, tags } = Object.fromEntries(formData);
 
-	accountsCollection.insertOne({ name, accountNumber, funds });
+	const result = await accountsCollection.insertOne({ ownedBy, name, accountNumber, funds });
 	// cookies.set("session", uuidv4(), {
 	// 	httpOnly: true,
 	// 	sameSite: "strict",
@@ -33,7 +33,5 @@ export async function POST({ url, request, cookies, locals }) {
 	// 	user: user,
 	// };
 	console.log(locals);
-	return json({
-		accountNumber,
-	});
+	return json(result);
 }

@@ -8,24 +8,18 @@ export const handle = async ({ event, resolve }) => {
 	// get cookies from browser
 	const session = event.cookies.get("session");
 
-	const accountsCollection = await getAccountsCollection();
-	// console.log("test");
-	// console.info("test");
-	// console.warn("test");
-	// console.error("test");
-
 	if (!session) {
 		// if there is no session load page as normal
 		return await resolve(event);
 	}
 
+	const accountsCollection = await getAccountsCollection();
+
 	if (user) {
 		event.locals.user = user;
 	}
-	// console.log("hooks", event.locals);
-	// }
+	console.warn("hooks", event.locals);
 
-	// load page as normal
 	return await resolve(event);
 };
 
@@ -47,6 +41,12 @@ export async function getAccountsCollection() {
 	const client = await run();
 	const db = client.db("bank");
 	return db.collection("accounts");
+}
+
+export async function getUsersCollection() {
+	const client = await run();
+	const db = client.db("bank-auth");
+	return db.collection("users");
 }
 
 export function updateHookedUser(inputUser) {

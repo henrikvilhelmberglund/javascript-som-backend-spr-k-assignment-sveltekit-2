@@ -24,7 +24,7 @@ export async function PUT({ request, params }) {
 
 	if (transactionType === "Withdraw") {
 		// server side check
-		if (transactionAmount > currentFunds) {
+		if (transactionAmount > currentFunds || transactionAmount > 30000) {
 			throw error(400, "Invalid request");
 		}
 		result = await accountsCollection.updateOne(
@@ -34,7 +34,7 @@ export async function PUT({ request, params }) {
 			{ $inc: { funds: -transactionAmount } }
 		);
 	} else if (transactionType === "Deposit") {
-		if (transactionAmount === 0 || transactionAmount > 30000) {
+		if (transactionAmount === 0) {
 			throw error(400, "Invalid request");
 		}
 		result = await accountsCollection.updateOne(

@@ -37,7 +37,7 @@
 	}
 </script>
 
-<main class="flex flex-col bg-gradient-to-b from-white to-blue-300 h-[calc(100vh-4rem)]">
+<main class="flex h-[calc(100vh-4rem)] flex-col bg-gradient-to-b from-white to-blue-300">
 	<div class="m-4 w-fit" out:fly={{ y: 50 }}>
 		{#if showAccount}
 			<div class="flex flex-row">
@@ -66,7 +66,7 @@
 						required
 						type="number"
 						min="1"
-						max={data.account.funds}
+						max={data.account.funds > 30000 ? 30000 : data.account.funds}
 						name=""
 						id="" />
 				{:else if state === "Deposit"}
@@ -76,7 +76,6 @@
 						required
 						type="number"
 						min="1"
-						max="30000"
 						name=""
 						id="" />
 				{/if}

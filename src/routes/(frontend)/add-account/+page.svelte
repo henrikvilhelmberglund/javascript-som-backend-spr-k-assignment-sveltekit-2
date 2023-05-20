@@ -28,13 +28,13 @@
 
 <main class="flex-1 [&>*]:m-4">
 	{#if show}
-  <h1 class="my-4 text-xl">Add an account</h1>
+		<h1 class="my-4 text-xl">Add an account</h1>
 		<form
 			on:submit|preventDefault={async () => {
 				let fetchData;
 				const res = await fetch(`http://localhost:5173/api/accounts/`, {
 					method: "POST",
-					body: JSON.stringify({ name, funds }),
+					body: JSON.stringify({ ownedBy: data.auth.user.id, name, funds }),
 				});
 				if (res.ok) {
 					fetchData = await res.json();

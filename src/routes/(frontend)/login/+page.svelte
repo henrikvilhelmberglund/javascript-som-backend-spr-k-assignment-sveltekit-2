@@ -38,9 +38,9 @@
 						}
 					);
 					if (res.ok) {
-						console.log("res was ok");
+						// console.log("res was ok");
 						fetchData = await res.json();
-						console.log(fetchData);
+						// console.log(fetchData);
 						// rerun load function so we get the new data into data.user.user
 
 						if (mode === "register") {
@@ -98,7 +98,7 @@
 				});
 				if (res.ok) {
 					fetchData = await res.json();
-					console.log(fetchData);
+					// console.log(fetchData);
 					data.state = "logged out";
 					$messageStore = { text: "Successfully logged out!", color: "green" };
 				} else {

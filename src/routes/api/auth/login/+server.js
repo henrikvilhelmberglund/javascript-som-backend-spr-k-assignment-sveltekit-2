@@ -21,16 +21,15 @@ export async function POST({ url, request, cookies, locals }) {
 		throw error(401, "Not authorized");
 	}
 	const dbHash = incomingUser.hash;
-	console.warn("pass " + pass);
-	console.warn("dbPass " + dbHash);
+	// console.info("pass:", pass, "dbPass:", dbHash);
 	let successful = false;
 	const match = await bcrypt.compare(pass, dbHash);
 
 	if (!match) {
-		console.error("it didn't work");
+		console.error("Wrong password");
 	}
 	if (match) {
-		console.log(incomingUser);
+		// console.warn("incoming user:", incomingUser);
 		if (incomingUser) {
 			// key would be an environment variable in .env in a real projekt
 			const token = jwt.sign({ id: incomingUser._id }, "a very secret key");
@@ -45,13 +44,12 @@ export async function POST({ url, request, cookies, locals }) {
 			locals = {
 				user: user,
 			};
-			console.log("+server.js /login", locals);
+			// console.log("+server.js /login", locals);
 		}
 		successful = true;
 		updateHookedUser(user);
 	}
 	if (successful) {
-		console.log("hi");
 		return json({
 			user: user.user,
 		});

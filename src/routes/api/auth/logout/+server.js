@@ -3,13 +3,11 @@ import { error, json } from "@sveltejs/kit";
 import chalk from "chalk";
 /** @type {import('./$types').RequestHandler} */
 
-export async function POST({ url, request, cookies, locals }) {
+export async function POST({ url, request, cookies }) {
 	const incomingBody = await request.json();
-	// const body = result.body;
-	// let { title, content, date, tags } = Object.fromEntries(formData);
+
 	cookies.delete("AuthorizationToken", { path: "/" });
-	// locals = null;
-	console.log(locals);
+
 	return json({
 		logout: "Successful",
 	});

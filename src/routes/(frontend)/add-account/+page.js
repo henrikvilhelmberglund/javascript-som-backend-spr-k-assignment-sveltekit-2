@@ -11,7 +11,7 @@ export const ssr = false;
 
 export async function load({ fetch }) {
 	const auth = await checkLoginStatus(fetch);
-	console.info("auth in add-account", auth);
+	// console.info("auth in add-account", auth);
 	if (!auth.user) {
 		return {
 			// instead of throwing an error I return it to the load function so I can display something else than just an error page

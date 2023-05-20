@@ -35,7 +35,6 @@
 			}, 1500);
 		}
 	}
-
 </script>
 
 <main class="m-4 flex w-fit flex-col">
@@ -45,7 +44,7 @@
 				<Account account={data.account} />
 				<button
 					on:click={() => {
-            deleteAccount(data.account, messageStore);
+						deleteAccount(data.account, messageStore);
 						showAccount = false;
 					}}
 					class="text-4xl">❌</button>

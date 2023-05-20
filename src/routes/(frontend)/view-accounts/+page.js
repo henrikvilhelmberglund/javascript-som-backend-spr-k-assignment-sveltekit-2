@@ -1,6 +1,4 @@
-import { browser } from "$app/environment";
 import { checkLoginStatus } from "$lib/clientFunctions";
-import { error } from "@sveltejs/kit";
 export const prerender = false;
 
 // this is a file containing a load() function that is used to load data and then return it to be able to use it with for example data.accounts in +page.svelte
@@ -13,7 +11,8 @@ export const prerender = false;
 export async function load({ fetch }) {
 	const auth = await checkLoginStatus();
 	if (!auth.user) {
-		return {
+    return {
+      // instead of throwing an error I return it to the load function so I can display something else than just an error page
 			error: 401,
 		};
 	}

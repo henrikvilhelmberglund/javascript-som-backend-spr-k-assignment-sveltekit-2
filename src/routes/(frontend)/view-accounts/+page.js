@@ -1,4 +1,7 @@
 import { browser } from "$app/environment";
+import { checkLoginStatus } from "$lib/clientFunctions";
+import { error } from "@sveltejs/kit";
+export const prerender = false;
 
 // this is a file containing a load() function that is used to load data and then return it to be able to use it with for example data.accounts in +page.svelte
 // you could also do everything in +page.svelte but splitting loading of data and presentation of data seems useful sometimes
@@ -8,13 +11,17 @@ import { browser } from "$app/environment";
 /** @type {import('./$types').PageLoad} */
 
 export async function load({ fetch }) {
-	if (browser) {
-		const res = await fetch("http://localhost:5173/api/accounts");
-		const data = await res.json();
-		// can't serialize BSON ID
-
+	const auth = await checkLoginStatus();
+	if (!auth.user) {
 		return {
-			accounts: data,
+			error: 401,
 		};
 	}
+	const res = await fetch("http://localhost:5173/api/accounts");
+	const data = await res.json();
+	// can't serialize BSON ID
+
+	return {
+		accounts: data,
+	};
 }

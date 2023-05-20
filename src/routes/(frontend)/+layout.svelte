@@ -17,7 +17,7 @@
 		Bankademin: "/",
 		"Add account": "/add-account",
 		"View accounts": "/view-accounts",
-    "Login": "/auth",
+    "Login": "/login",
 	};
 </script>
 

@@ -32,7 +32,7 @@
 			await invalidateAll();
 			setTimeout(() => {
 				$messageStore = null;
-			}, 1500);
+			}, 1000);
 		}
 	}
 </script>

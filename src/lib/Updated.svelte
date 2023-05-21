@@ -3,15 +3,10 @@
 	import { fly } from "svelte/transition";
 	import { messageStore } from "./stores";
 
-	// TODO fix timer not restarting when clicked several times
-	let timer;
-	if (timer) {
-		console.log("cleared timer");
-		clearTimeout(timer);
-	}
-	timer = setTimeout(() => {
+	// a bit broken when depositing/withdrawing
+	setTimeout(() => {
 		$messageStore = null;
-	}, 2000);
+	}, 2500);
 </script>
 
 <!--

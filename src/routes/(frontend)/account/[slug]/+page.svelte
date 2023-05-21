@@ -37,6 +37,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Bankademin - Your accounts</title>
+</svelte:head>
+
 <main class="flex h-[calc(100vh-4rem)] flex-col bg-gradient-to-b from-white to-blue-300">
 	<div class="m-4 w-fit" out:fly={{ y: 50 }}>
 		{#if showAccount}

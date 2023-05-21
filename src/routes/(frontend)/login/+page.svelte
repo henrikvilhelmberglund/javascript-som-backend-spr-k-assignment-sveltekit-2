@@ -14,6 +14,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Bankademin - Login/register</title>
+</svelte:head>
+
 <main class="h-[calc(100vh-4rem)] bg-gradient-to-b from-white to-blue-300 [&>*]:p-4">
 	{#if data.state === "logged out"}
 		<h1 class="text-4xl">{mode === "login" ? "Login" : "Register"}</h1>
@@ -55,7 +59,7 @@
 							await invalidateAll();
 						}
 						data.state = mode === "login" ? "logged in" : "registered";
-            error = "";
+						error = "";
 					} else {
 						pass = "";
 						error = { status: 401, text: "Unauthorized" };

@@ -15,9 +15,8 @@
 </script>
 
 <main class="h-[calc(100vh-4rem)] bg-gradient-to-b from-white to-blue-300 [&>*]:p-4">
-	<h1 class="text-5xl">Auth page</h1>
 	{#if data.state === "logged out"}
-		<h2 class="text-4xl">{mode === "login" ? "Login" : "Register"}</h2>
+		<h1 class="text-4xl">{mode === "login" ? "Login" : "Register"}</h1>
 		<button
 			on:click={() => (mode === "login" ? (mode = "register") : (mode = "login"))}
 			class="m-4 rounded-lg bg-emerald-500 p-2 hover:bg-emerald-400"
@@ -56,6 +55,7 @@
 							await invalidateAll();
 						}
 						data.state = mode === "login" ? "logged in" : "registered";
+            error = "";
 					} else {
 						pass = "";
 						error = { status: 401, text: "Unauthorized" };

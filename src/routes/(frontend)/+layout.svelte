@@ -3,6 +3,7 @@
 	import "@unocss/reset/tailwind.css";
 	import { checkLoginStatus } from "$lib/clientFunctions.js";
 	import { loggedIn } from "$lib/stores.js";
+	import Footer from "$lib/Footer.svelte";
 
 	let show = false;
 	let debug = true;
@@ -45,6 +46,7 @@
 		</nav>
 	</header>
 	<slot />
+	<Footer />
 {:else}
 	<div class="flex h-screen w-screen flex-col items-center justify-center">
 		<div

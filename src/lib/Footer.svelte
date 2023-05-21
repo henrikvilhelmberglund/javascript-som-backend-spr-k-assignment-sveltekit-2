@@ -3,31 +3,35 @@
 	import { base } from "$app/paths";
 	import { onMount, onDestroy } from "svelte";
 	import { fade } from "svelte/transition";
-	let show = false;
+	let show = true;
 
-	function handleScroll() {
-		const scrollPosition = window.scrollY;
-		const windowHeight = window.innerHeight;
-		const offset = 200;
-		const fullHeight = document.body.clientHeight;
-		if (scrollPosition + windowHeight + offset > fullHeight) {
-			show = true;
-		} else {
-			show = false;
-		}
-	}
+  let scrollPosition= 0;
+  let windowHeight = 0;
+  let fullHeight = 0;
 
-	onMount(() => {
-		if (browser) {
-			window.addEventListener("scroll", handleScroll);
-		}
-	});
+	// function handleScroll() {
+	// 	scrollPosition = window.scrollY;
+	// 	windowHeight = window.innerHeight;
+	// 	let offset = 100;
+	// 	fullHeight = document.body.clientHeight;
+	// 	if (scrollPosition + windowHeight + offset >= fullHeight) {
+	// 		show = true;
+	// 	} else {
+	// 		show = false;
+	// 	}
+	// }
 
-	onDestroy(() => {
-		if (browser) {
-			window.removeEventListener("scroll", handleScroll);
-		}
-	});
+	// onMount(() => {
+	// 	if (browser) {
+	// 		window.addEventListener("scroll", handleScroll);
+	// 	}
+	// });
+
+	// onDestroy(() => {
+	// 	if (browser) {
+	// 		window.removeEventListener("scroll", handleScroll);
+	// 	}
+	// });
 </script>
 
 {#if show}

@@ -1,9 +1,12 @@
 <script>
 	import { onMount, beforeUpdate } from "svelte";
 	import "@unocss/reset/tailwind.css";
+	import { checkLoginStatus } from "$lib/clientFunctions.js";
+	import { loggedIn } from "$lib/stores.js";
 
 	let show = false;
 	let debug = true;
+
 	let loadingText = "Loading...";
 	onMount(() => {
 		show = true;
@@ -17,7 +20,7 @@
 		Bankademin: "/",
 		"Add account": "/add-account",
 		"View accounts": "/view-accounts",
-    "Login": "/login",
+		Login: "/login",
 	};
 </script>
 
@@ -25,10 +28,19 @@
 	<header>
 		<nav class="font-inknut bg-blue-700 p-4">
 			{#each Object.entries(routes) as [name, link]}
-				<a
-					class:!decoration-blue-200={currentRoute === link}
-					class="decoration-offset-6 p-4 pb-0 text-blue-200 underline decoration-transparent hover:text-blue-100 md:text-2xl"
-					href={link}>{name}</a>
+				{#if link === "/add-account" || link === "/view-accounts"}
+					{#if $loggedIn}
+						<a
+							class:!decoration-blue-200={currentRoute === link}
+							class="decoration-offset-6 p-4 pb-0 text-blue-200 underline decoration-transparent hover:text-blue-100 md:text-2xl"
+							href={link}>{name}</a>
+					{/if}
+				{:else}
+					<a
+						class:!decoration-blue-200={currentRoute === link}
+						class="decoration-offset-6 p-4 pb-0 text-blue-200 underline decoration-transparent hover:text-blue-100 md:text-2xl"
+						href={link}>{name}</a>
+				{/if}
 			{/each}
 		</nav>
 	</header>

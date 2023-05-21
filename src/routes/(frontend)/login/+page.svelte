@@ -1,8 +1,7 @@
 <script>
 	import { invalidateAll } from "$app/navigation";
 	import Updated from "$lib/Updated.svelte";
-	import { messageStore } from "$lib/stores.js";
-
+	import { loggedIn, messageStore } from "$lib/stores.js";
 	// let state = "logged out";
 	let user;
 	let pass;
@@ -53,6 +52,7 @@
 							}, 1500);
 						} else {
 							$messageStore = { text: "Successfully logged in!", color: "green" };
+							$loggedIn = true;
 							await invalidateAll();
 						}
 						data.state = mode === "login" ? "logged in" : "registered";
@@ -100,6 +100,7 @@
 					fetchData = await res.json();
 					// console.log(fetchData);
 					data.state = "logged out";
+					$loggedIn = false;
 					$messageStore = { text: "Successfully logged out!", color: "green" };
 				} else {
 					error = { status: 401, text: "Unauthorized???" };

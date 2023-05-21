@@ -1,5 +1,6 @@
 import { goto } from "$app/navigation";
 import { get } from "svelte/store";
+import { loggedIn } from "./stores";
 
 export async function deleteAccount(account, store) {
 	const name = account.name;
@@ -26,10 +27,12 @@ export async function checkLoginStatus(fetch) {
 	if (res.ok) {
 		data = await res.json();
 		// console.log("+page.js", data);
+		loggedIn.set(true);
 		state = "logged in";
 	} else {
 		// console.log("+page.js", data);
 		state = "logged out";
+		loggedIn.set(false);
 	}
 	return {
 		user: data,

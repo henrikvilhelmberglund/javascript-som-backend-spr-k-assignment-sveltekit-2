@@ -25,7 +25,7 @@ export async function POST({ url, request, cookies, locals }) {
 	const match = await bcrypt.compare(pass, dbHash);
 
 	if (!match) {
-		console.error("Wrong password");
+		console.warn(`User ${incomingUser.user} tried to log in with wrong password`);
 	}
 	if (match) {
 		// console.warn("incoming user:", incomingUser);

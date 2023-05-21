@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/compare/v0.0.2...v1.0.0) (2023-05-21)
+
+
+### Features
+
+* :memo: update README ([fd2c414](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/fd2c414fe017b34976619a14e972a34de08530cd))
+* :sparkles: add back Footer component ([5cda6a3](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/5cda6a37ac502d1a517af70e7874447418a678f8))
+* :mag: add titles ([0f820f6](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/0f820f68264cf2fa5806b3b862587d32261c576a))
+* :sparkles: add loggedIn store which hides some links in the nav when you are not logged in ([a38398f](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/a38398fa7248ca366275982895a8720b335c5365))
+
+
+### Bug Fixes
+
+* :art: remove Auth page h1 ([b1070e3](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/b1070e3ed14aa49a0262b1ddcd3ac3d605883aeb))
+* :bug: edit timer a bit (still bugged when clicking a lot of times fast) ([a30a767](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/a30a767125bbf5fc471e8211d410cda570d51211))
+* :art: update console warn message for wrong password ([321bc4f](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/321bc4f0be83580ab3e1989f1a8f4f460bfa6fc8))
+* :fire: comment out console log ([f080096](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/f080096f5d29aabdaf773132c0922c4c5da68758))
+* :fire: comment out console logs ([606ec67](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/606ec675398981679f1d0f7cf102194ffa6c5f62))
+* :fire: cleanup ([d595bf3](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/d595bf309726023a373fdbd0c2f52660ab0249c5))
+* :bug: add back locals which I removed by accident ([adf4847](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/adf4847288cde36bb2f09c4c516d690a010acacb))
+* :fire: cleanup ([6efaef0](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/6efaef054f80ff4c789e4f5af3777009d58ad5d7))
+* :bug: use adapter-auto instead of adapter-static for building to work ([ab7f47c](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/commit/ab7f47c5a2fa4fb9ee9311419fa78ff50a7bd9f3))
+
 ## [0.0.2](https://github.com/henrikvilhelmberglund/javascript-som-backend-spr-k-assignment-sveltekit-2/compare/v0.0.1...v0.0.2) (2023-05-20)
 
 

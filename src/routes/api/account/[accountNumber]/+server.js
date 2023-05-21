@@ -5,7 +5,7 @@ const accountsCollection = await getAccountsCollection();
 /** @type {import('./$types').RequestHandler} */
 
 export async function GET({ url, request, params, locals }) {
-	console.info(params.accountNumber);
+	// console.info(params.accountNumber);
 	// make sure we're not finding any other user's accounts in the dynamic route
 	const account = await accountsCollection.findOne({
 		ownedBy: locals.id,

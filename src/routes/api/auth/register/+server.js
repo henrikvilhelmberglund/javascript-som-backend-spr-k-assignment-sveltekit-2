@@ -1,5 +1,4 @@
 import { getUsersCollection } from "../../../../hooks.server";
-import { v4 as uuidv4 } from "uuid";
 import { error, json } from "@sveltejs/kit";
 import bcrypt from "bcrypt";
 

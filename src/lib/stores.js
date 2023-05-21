@@ -1,5 +1,4 @@
 import { writable } from "svelte/store";
-import { persisted } from "svelte-local-storage-store";
 
 // this store keeps track of login status on the client to hide elements in the navbar
 // it would probably be easier to just expose this from the server directly in a +layout.server.js file
@@ -7,5 +6,3 @@ import { persisted } from "svelte-local-storage-store";
 export const loggedIn = writable(false);
 
 export const messageStore = writable();
-export const activeTheme = writable("");
-export const preferredMode = persisted("preferredMode", "");

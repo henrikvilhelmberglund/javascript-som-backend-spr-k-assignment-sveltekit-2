@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { error, json } from "@sveltejs/kit";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -6,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { getUsersCollection, updateHookedUser } from "/src/hooks.server";
 /** @type {import('./$types').RequestHandler} */
 
-export async function POST({ url, request, cookies, locals }) {
+export async function POST({ url, request, cookies }) {
 	// cookies are in seconds here apparently
 	const FIVE_MINUTES = 5 * 60;
 	let incomingUser;

@@ -2,7 +2,7 @@ import { getAccountsCollection } from "/src/hooks.server.js";
 import { v4 as uuidv4 } from "uuid";
 import { json } from "@sveltejs/kit";
 
-// +server.js files are endpoints, the functions below can be fetch() from /accounts/ (this route) and either GET or POST (also DELETE and PUT if needed)
+// +server.js files are endpoints, the functions below can be fetch() from /api/accounts/ (this route) and either GET or POST (also DELETE and PUT if needed)
 
 const accountsCollection = await getAccountsCollection();
 

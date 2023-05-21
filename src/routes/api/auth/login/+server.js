@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { getUsersCollection, updateHookedUser } from "/src/hooks.server";
 /** @type {import('./$types').RequestHandler} */
 
-export async function POST({ url, request, cookies }) {
+export async function POST({ url, request, cookies, locals }) {
 	// cookies are in seconds here apparently
 	const FIVE_MINUTES = 5 * 60;
 	let incomingUser;

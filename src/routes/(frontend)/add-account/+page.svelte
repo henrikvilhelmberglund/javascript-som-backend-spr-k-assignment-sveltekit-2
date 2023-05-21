@@ -38,7 +38,7 @@
 				});
 				if (res.ok) {
 					fetchData = await res.json();
-					console.log(fetchData);
+					// console.log(fetchData);
 
 					$messageStore = { color: "green", text: `Successfully added new account: ${name}!` };
 				} else {

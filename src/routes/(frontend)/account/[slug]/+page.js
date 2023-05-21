@@ -8,7 +8,7 @@ export const ssr = false;
 
 export async function load({ fetch, params }) {
 	const auth = await checkLoginStatus(fetch);
-	console.log("authenticated", auth.user);
+	// console.log("authenticated", auth.user);
 	if (!auth.user) {
 		throw error(401, "Not authorized");
 	}

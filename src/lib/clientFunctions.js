@@ -9,7 +9,7 @@ export async function deleteAccount(account, store) {
 	});
 	if (res.ok) {
 		const result = await res.json();
-		console.log(result);
+		// console.log(result);
 		store.set({ text: `Successfully deleted account ${name}`, color: "red" });
 		// rerun load function to update the new funds in the UI
 		setTimeout(() => {
